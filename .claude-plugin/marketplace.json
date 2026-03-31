@@ -5,6 +5,11 @@
       "name": "sonos-quarter-review",
       "source": "./skills/sonos-quarter-review",
       "description": "Generates a slide-ready Q delivery summary for Sonos IT projects"
+    },
+    {
+      "name": "ecrm-sprint-dashboard",
+      "source": "./skills/ecrm-sprint-dashboard",
+      "description": "Generates a live sprint health dashboard for the ECRM Jira project — burndown, risks, carry-overs"
     }
   ],
   "owner": {

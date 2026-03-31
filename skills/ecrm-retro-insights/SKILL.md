@@ -168,7 +168,80 @@ Examples:
 
 ---
 
-## Step 7 — Output the full retrospective document
+## Step 7 — Publish to Confluence
+
+After generating all insights, create a new Confluence page as a child of the Sprint Review 2026 parent page.
+
+Call `mcp__atlassian-rovo-mcp__createConfluencePage` with:
+- **spaceKey**: `it`
+- **parentId**: `2065662133`
+- **title**: `Sprint Retro — [Sprint Name]` (e.g. "Sprint Retro — ECRM Sprint 42")
+- **content**: the full retrospective formatted as Confluence storage format (see template below)
+
+### Confluence storage format template
+
+Build the page body as HTML using Confluence storage format macros:
+
+```html
+<p><strong>Sprint:</strong> [Sprint Name] &nbsp;|&nbsp; <strong>Period:</strong> [Start Date] → [End Date] &nbsp;|&nbsp; <strong>Generated:</strong> [datetime BRT]</p>
+
+<h2>📈 Velocity Snapshot (last 4 sprints)</h2>
+<table>
+  <tbody>
+    <tr><th>Sprint</th><th>Committed pts</th><th>Completed pts</th><th>Completion %</th><th>Carry-overs</th></tr>
+    <tr><td>[T-3 name]</td><td>[X]</td><td>[X]</td><td>[X]%</td><td>[X]</td></tr>
+    <tr><td>[T-2 name]</td><td>[X]</td><td>[X]</td><td>[X]%</td><td>[X]</td></tr>
+    <tr><td>[T-1 name]</td><td>[X]</td><td>[X]</td><td>[X]%</td><td>[X]</td></tr>
+    <tr><td><strong>[T name]</strong></td><td><strong>[X]</strong></td><td><strong>[X]</strong></td><td><strong>[X]%</strong></td><td><strong>[X]</strong></td></tr>
+  </tbody>
+</table>
+<p><strong>Trend:</strong> [↑ Improving / ↓ Declining / → Stable] &nbsp;|&nbsp; Avg velocity (baseline): [X] pts &nbsp;|&nbsp; This sprint: [Y] pts</p>
+
+<h2>✅ What Went Well</h2>
+<ul>
+  <li>[Insight 1]</li>
+  <li>[Insight 2]</li>
+</ul>
+
+<h2>⚠️ What Didn't Go Well</h2>
+<ul>
+  <li>[Insight 1]</li>
+  <li>[Insight 2]</li>
+</ul>
+
+<h2>🔍 Patterns &amp; Observations</h2>
+<ul>
+  <li>[Pattern 1]</li>
+  <li>[Pattern 2]</li>
+</ul>
+
+<h2>💡 Improvement Proposals</h2>
+<ol>
+  <li>
+    <strong>[Proposal Title]</strong><br/>
+    <strong>Problem:</strong> [...]<br/>
+    <strong>Action:</strong> [...]<br/>
+    <strong>Owner:</strong> [...]<br/>
+    <strong>Metric:</strong> [...]
+  </li>
+</ol>
+
+<h2>🎯 Retro Discussion Prompts</h2>
+<ol>
+  <li>[Question 1]</li>
+  <li>[Question 2]</li>
+  <li>[Question 3]</li>
+</ol>
+```
+
+After the page is created, output the Confluence page URL:
+`https://sonosinc.atlassian.net/wiki/spaces/it/pages/[new_page_id]`
+
+If a page with the same title already exists under parent `2065662133`, call `mcp__atlassian-rovo-mcp__updateConfluencePage` instead to update it with the latest content (increment version number).
+
+---
+
+## Step 8 — Output the full retrospective document
 
 Print the complete retrospective in this format:
 

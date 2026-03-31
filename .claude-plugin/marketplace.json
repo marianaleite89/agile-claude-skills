@@ -10,6 +10,11 @@
       "name": "ecrm-sprint-dashboard",
       "source": "./skills/ecrm-sprint-dashboard",
       "description": "Generates a live sprint health dashboard for the ECRM Jira project — burndown, risks, carry-overs"
+    },
+    {
+      "name": "ecrm-retro-insights",
+      "source": "./skills/ecrm-retro-insights",
+      "description": "Generates AI-powered retrospective insights for the ECRM sprint — velocity trends, what went well/didn't, patterns, and improvement proposals"
     }
   ],
   "owner": {

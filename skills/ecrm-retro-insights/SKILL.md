@@ -173,65 +173,71 @@ Examples:
 After generating all insights, create a new Confluence page as a child of the Sprint Review 2026 parent page.
 
 Call `mcp__atlassian-rovo-mcp__createConfluencePage` with:
-- **spaceKey**: `it`
+- **cloudId**: `97b353fc-45ae-4217-a668-3371cc9614f5` (Sonos Atlassian cloud ID)
+- **spaceId**: `138903552` (IT space numeric ID — do NOT use spaceKey)
 - **parentId**: `2065662133`
-- **title**: `Sprint Retro — [Sprint Name]` (e.g. "Sprint Retro — ECRM Sprint 42")
-- **content**: the full retrospective formatted as Confluence storage format (see template below)
+- **title**: `Sprint Retro — [Sprint Name]` (e.g. "Sprint Retro — ECRM CY26 #6")
+- **contentFormat**: `markdown`
+- **body**: the full retrospective in markdown (see template below)
 
-### Confluence storage format template
+> Use `contentFormat: "markdown"` — it is simpler and renders correctly. Do NOT use `content` or `spaceKey` — those are invalid parameter names.
 
-Build the page body as HTML using Confluence storage format macros:
+### Markdown template
 
-```html
-<p><strong>Sprint:</strong> [Sprint Name] &nbsp;|&nbsp; <strong>Period:</strong> [Start Date] → [End Date] &nbsp;|&nbsp; <strong>Generated:</strong> [datetime BRT]</p>
+```markdown
+**Sprint:** [Sprint Name] | **Period:** [Start Date] → [End Date] | **Generated:** [datetime BRT]
 
-<h2>📈 Velocity Snapshot (last 4 sprints)</h2>
-<table>
-  <tbody>
-    <tr><th>Sprint</th><th>Committed pts</th><th>Completed pts</th><th>Completion %</th><th>Carry-overs</th></tr>
-    <tr><td>[T-3 name]</td><td>[X]</td><td>[X]</td><td>[X]%</td><td>[X]</td></tr>
-    <tr><td>[T-2 name]</td><td>[X]</td><td>[X]</td><td>[X]%</td><td>[X]</td></tr>
-    <tr><td>[T-1 name]</td><td>[X]</td><td>[X]</td><td>[X]%</td><td>[X]</td></tr>
-    <tr><td><strong>[T name]</strong></td><td><strong>[X]</strong></td><td><strong>[X]</strong></td><td><strong>[X]%</strong></td><td><strong>[X]</strong></td></tr>
-  </tbody>
-</table>
-<p><strong>Trend:</strong> [↑ Improving / ↓ Declining / → Stable] &nbsp;|&nbsp; Avg velocity (baseline): [X] pts &nbsp;|&nbsp; This sprint: [Y] pts</p>
+---
 
-<h2>✅ What Went Well</h2>
-<ul>
-  <li>[Insight 1]</li>
-  <li>[Insight 2]</li>
-</ul>
+## 📈 Velocity Snapshot (last 4 sprints)
 
-<h2>⚠️ What Didn't Go Well</h2>
-<ul>
-  <li>[Insight 1]</li>
-  <li>[Insight 2]</li>
-</ul>
+| Sprint | Committed issues | Done issues | Completion % | Carry-overs |
+|--------|-----------------|-------------|--------------|-------------|
+| [T-3 name] | [X] | [X] | [X]% | [X] |
+| [T-2 name] | [X] | [X] | [X]% | [X] |
+| [T-1 name] | [X] | [X] | [X]% | [X] |
+| **[T name]** | **[X]** | **[X]** | **[X]%** | **[X]** |
 
-<h2>🔍 Patterns &amp; Observations</h2>
-<ul>
-  <li>[Pattern 1]</li>
-  <li>[Pattern 2]</li>
-</ul>
+**Trend:** [↑ Improving / ↓ Declining / → Stable] | Avg done baseline (T-3→T-1): [X] issues | This sprint: [Y] issues
 
-<h2>💡 Improvement Proposals</h2>
-<ol>
-  <li>
-    <strong>[Proposal Title]</strong><br/>
-    <strong>Problem:</strong> [...]<br/>
-    <strong>Action:</strong> [...]<br/>
-    <strong>Owner:</strong> [...]<br/>
-    <strong>Metric:</strong> [...]
-  </li>
-</ol>
+---
 
-<h2>🎯 Retro Discussion Prompts</h2>
-<ol>
-  <li>[Question 1]</li>
-  <li>[Question 2]</li>
-  <li>[Question 3]</li>
-</ol>
+## ✅ What Went Well
+
+- [Insight 1]
+- [Insight 2]
+
+---
+
+## ⚠️ What Didn't Go Well
+
+- [Insight 1]
+- [Insight 2]
+
+---
+
+## 🔍 Patterns & Observations
+
+- [Pattern 1]
+- [Pattern 2]
+
+---
+
+## 💡 Improvement Proposals
+
+**1. [Proposal Title]**
+- **Problem:** [...]
+- **Action:** [...]
+- **Owner:** [...]
+- **Metric:** [...]
+
+---
+
+## 🎯 Retro Discussion Prompts
+
+1. "[Question 1]"
+2. "[Question 2]"
+3. "[Question 3]"
 ```
 
 After the page is created, output the Confluence page URL:

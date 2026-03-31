@@ -17,7 +17,7 @@ Add to your `~/.claude/settings.json`:
   "marianaleite89-skills": {
     "source": {
       "source": "github",
-      "repo": "marianaleite89/claude-skills"
+      "repo": "marianaleite89/agile-claude-skills"
     }
   }
 },

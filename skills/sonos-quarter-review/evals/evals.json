@@ -1,0 +1,20 @@
+{
+  "skill_name": "sonos-quarter-review",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Can you do a Q2 FY26 delivery review for the slide deck I need to present to leadership? Cover all the usual Sonos projects.",
+      "expected_output": "Slide-ready 2-sentence summaries for all 10 projects (ECRM, CareDev, HWOF, SBIZ, CRMPTNR, MET, WEBPLAT, WEBTECH, SUB, PWM) based on actual completed Jira issues from Jan–Mar 2026."
+    },
+    {
+      "id": 2,
+      "prompt": "What did the CRMPTNR and WEBTECH teams ship in Q2 FY26?",
+      "expected_output": "2-sentence impact summaries for CRMPTNR and WEBTECH only, grounded in completed Jira issues from Jan–Mar 2026."
+    },
+    {
+      "id": 3,
+      "prompt": "I need to prep for the Q3 FY26 quarterly review — what can I say was delivered this quarter for the Sonos IT portfolio?",
+      "expected_output": "Slide-ready 2-sentence summaries for all 10 projects based on completed Jira issues from Apr–Jun 2026."
+    }
+  ]
+}

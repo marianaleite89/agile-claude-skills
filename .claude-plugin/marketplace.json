@@ -1,0 +1,13 @@
+{
+  "name": "marianaleite89-skills",
+  "plugins": [
+    {
+      "name": "sonos-quarter-review",
+      "source": "./skills/sonos-quarter-review",
+      "description": "Generates a slide-ready Q delivery summary for Sonos IT projects"
+    }
+  ],
+  "owner": {
+    "name": "marianaleite89"
+  }
+}
